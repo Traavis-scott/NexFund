@@ -31,8 +31,8 @@ export function AuthForm() {
         if (error) throw error;
         toast.success('Compte créé avec succès');
       }
-    } catch (error) {
-      toast.error(error.message);
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : 'Erreur');
     } finally {
       setLoading(false);
     }

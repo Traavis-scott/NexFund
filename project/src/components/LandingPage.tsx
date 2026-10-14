@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Briefcase, CheckCircle2, LineChart, Lock, ArrowRight, Sparkles, BarChart3, Zap } from 'lucide-react';
+import { Briefcase, ArrowRight, Sparkles, BarChart3, Zap } from 'lucide-react';
 import { TradingChart } from './ui/TradingChart';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
