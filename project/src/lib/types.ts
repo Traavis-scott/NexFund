@@ -1,11 +1,11 @@
-export type Strategy = {
-  id: string;
-  name: string;
-  description?: string;
-};
+export interface SubscriptionStatus {
+  isActive: boolean;
+  trialEnd: string | null;
+  currentPeriodEnd: string | null;
+  cancelAtPeriodEnd: boolean;
+}
 
-export type Session = {
+export interface UserProfile {
   id: string;
-  userId?: string;
-  createdAt?: string;
-};
+  subscription: SubscriptionStatus;
+}

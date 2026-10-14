@@ -1,0 +1,16 @@
+project_id = "eufarupsmrcpbziqvfxx"
+
+[functions.check-subscriptions]
+verify_jwt = true
+
+[functions.create-lygos-session]
+verify_jwt = true
+
+[functions.lygos-webhook]
+verify_jwt = false
+
+[functions.train-model]
+verify_jwt = true
+
+[functions.upload-data]
+verify_jwt = true
