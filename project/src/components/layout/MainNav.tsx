@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { 
   Menu, X, Settings, History, Brain, HelpCircle, LogOut, 
-  TrendingUp, Sun, Moon, BookOpen, Save, Database, BarChart2
+  TrendingUp, Sun, Moon, Database, BarChart2
 } from 'lucide-react';
 import { useTheme } from '@/lib/ThemeProvider';
 import { supabase } from '@/lib/supabase';
@@ -11,7 +11,7 @@ import { Drawer } from 'vaul';
 import toast from 'react-hot-toast';
 
 export function MainNav() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [, setIsOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const navigate = useNavigate();
   const location = useLocation();

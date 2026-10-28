@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+
 import * as Progress from '@radix-ui/react-progress';
 
 interface PageProgressProps {

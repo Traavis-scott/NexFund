@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Brain, Play, AlertCircle } from 'lucide-react';
 import * as Select from '@radix-ui/react-select';
-import { supabase } from '@/lib/supabase';
 import { useAuth } from '@/lib/AuthContext';
 import toast from 'react-hot-toast';
 

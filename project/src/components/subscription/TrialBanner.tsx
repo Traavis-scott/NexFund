@@ -14,12 +14,14 @@ export function TrialBanner() {
   useEffect(() => {
     if (!session) return;
 
+    const userId = session.user.id;
+
     async function getSubscriptionStatus() {
       try {
         const { data, error } = await supabase
           .from('user_subscriptions')
           .select('trial_end, current_period_end, cancel_at_period_end')
-          .eq('user_id', session.user.id)
+          .eq('user_id', userId)
           .maybeSingle();
 
         if (error) {

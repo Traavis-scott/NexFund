@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { useSpring, motion } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 
 interface AnimatedNumberProps {
   value: number;
@@ -8,29 +8,26 @@ interface AnimatedNumberProps {
   suffix?: string;
 }
 
-export function AnimatedNumber({ 
-  value, 
+export function AnimatedNumber({
+  value,
   precision = 1,
   prefix = '',
   suffix = ''
 }: AnimatedNumberProps) {
-  const previousValue = useRef(value);
-  
-  const spring = useSpring(previousValue.current, {
-    from: previousValue.current,
-    to: value,
-    velocity: 300,
+  const motionValue = useMotionValue(value);
+  const spring = useSpring(motionValue, {
     stiffness: 100,
     damping: 30,
   });
+  const display = useTransform(spring, (latest: number) =>
+    `${prefix}${latest.toFixed(precision)}${suffix}`
+  );
+  const previousValue = useRef(value);
 
   useEffect(() => {
+    motionValue.set(value);
     previousValue.current = value;
-  }, [value]);
+  }, [value, motionValue]);
 
-  return (
-    <motion.span>
-      {spring.to(val => `${prefix}${val.toFixed(precision)}${suffix}`)}
-    </motion.span>
-  );
+  return <motion.span>{display}</motion.span>;
 }

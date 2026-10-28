@@ -1,7 +1,6 @@
 import { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { Upload, Loader2 } from 'lucide-react';
-import { supabase } from '@/lib/supabase';
 import { useAuth } from '@/lib/AuthContext';
 import toast from 'react-hot-toast';
 
