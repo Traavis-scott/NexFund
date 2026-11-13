@@ -101,6 +101,10 @@ export function BacktestRunner() {
           <h2 className="text-xl font-semibold">Paramètres du Backtest IA</h2>
         </div>
 
+        <p className="mb-6 rounded-lg border border-yellow-500/30 bg-yellow-500/10 p-3 text-sm text-foreground">
+          Mode démonstration : ce backtest utilise des données de marché générées aléatoirement, et non vos données historiques. Les résultats sont illustratifs et ne reflètent pas une performance réelle.
+        </p>
+
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
             <label className="block text-sm font-medium mb-2">
