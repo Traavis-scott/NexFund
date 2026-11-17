@@ -1,5 +1,6 @@
 import { createClient } from "npm:@supabase/supabase-js@2.39.0";
 import { parse } from "npm:csv-parse@5.5.3";
+import { checkRateLimit, rateLimitResponse } from "../_shared/rate-limiter.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -69,6 +70,14 @@ Deno.serve(async (req) => {
         JSON.stringify({ error: "Non autorise" }),
         { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
+    }
+
+    const { allowed, resetIn } = await checkRateLimit(userId, "upload-data", {
+      maxRequests: 10,
+      windowSeconds: 60,
+    });
+    if (!allowed) {
+      return rateLimitResponse(resetIn);
     }
 
     const formData = await req.formData();

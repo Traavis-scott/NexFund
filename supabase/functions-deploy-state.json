@@ -1,0 +1,25 @@
+{
+  "projectId": "71943355",
+  "functions": {
+    "check-subscriptions": {
+      "hasChanged": false,
+      "hash": "6f940f65458a5e60bf2000ad043ad6c707979dec6774bcbe5b7e215cf07c0786"
+    },
+    "create-lygos-session": {
+      "hasChanged": false,
+      "hash": "a682b7de7061e71794586286a0130803c353a77b9e10a0ee8bf32c7ab0497b17"
+    },
+    "lygos-webhook": {
+      "hasChanged": false,
+      "hash": "a06d8489ae59a8700d33b868e1f5d1936da79b33efad2f32cea883a9ebbe9da7"
+    },
+    "train-model": {
+      "hasChanged": false,
+      "hash": "39978eefd3230b78fd7c23bfbe2361e1797ae53edcc4bbb7ede47f6c84c1d49dc0995e92ba8b7b56a664b5998a1ad95e30d08368ac4fe54694c2695967b53dc9"
+    },
+    "upload-data": {
+      "hasChanged": false,
+      "hash": "2c3fd1359a51abee2ecd4d9ad5dc635e9697a9d345d22160f81a36dc5e52e55fc0995e92ba8b7b56a664b5998a1ad95e30d08368ac4fe54694c2695967b53dc9"
+    }
+  }
+}

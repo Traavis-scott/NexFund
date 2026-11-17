@@ -1,4 +1,5 @@
 import { createClient } from "npm:@supabase/supabase-js@2.39.0";
+import { checkRateLimit, rateLimitResponse } from "../_shared/rate-limiter.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -110,6 +111,14 @@ Deno.serve(async (req) => {
         JSON.stringify({ error: "Non autorise" }),
         { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
+    }
+
+    const { allowed, resetIn } = await checkRateLimit(userId, "train-model", {
+      maxRequests: 5,
+      windowSeconds: 60,
+    });
+    if (!allowed) {
+      return rateLimitResponse(resetIn);
     }
 
     const body: TrainingRequest = await req.json();
